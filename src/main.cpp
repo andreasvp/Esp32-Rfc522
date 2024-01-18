@@ -1,3 +1,6 @@
+#include <gpio_viewer.h> // Must me the first include in your project
+GPIOViewer gpio_viewer;
+
 #include <Arduino.h>
 #include <MFRC522.h>
 #include <SPI.h>
@@ -18,6 +21,10 @@ void setup() {
   // allowed to read from the tags.
   Serial.begin(115200);
 
+  // Comment the next line, If your code aleady include connection to Wifi in mode WIFI_STA (WIFI_AP and WIFI_AP_STA are not supported)
+  gpio_viewer.connectToWifi("DecaNussRfc", "admin");
+  // gpio_viewer.setPort(5555);   // You can set the http port, if not set default port is 8080  
+
   Serial.println("Looking for MFRC522.");
   nfc.begin();
 
@@ -32,6 +39,11 @@ void setup() {
   Serial.print("Firmware ver. 0x");
   Serial.print(version, HEX);
   Serial.println(".");
+
+  // Must be at the end of your setup
+  gpio_viewer.setSamplingInterval(25); // You can set the sampling interval in ms, if not set default is 100ms
+  gpio_viewer.begin();
+
 }
 
 void loop() {
