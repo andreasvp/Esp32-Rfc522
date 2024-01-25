@@ -22,7 +22,7 @@ void setup() {
   Serial.begin(115200);
 
   // Comment the next line, If your code aleady include connection to Wifi in mode WIFI_STA (WIFI_AP and WIFI_AP_STA are not supported)
-  gpio_viewer.connectToWifi("DecaNussRfc", "admin");
+  gpio_viewer.connectToWifi("9zP4UWzi8xYmIG8c7VAk", "10504184df2b662bff3d4c2f97a8c99f");
   // gpio_viewer.setPort(5555);   // You can set the http port, if not set default port is 8080  
 
   Serial.println("Looking for MFRC522.");
