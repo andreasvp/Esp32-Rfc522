@@ -1,10 +1,10 @@
-
 #include <Arduino.h>
 #include <MFRC522.h>
-#include <SPI.h>
 
-#define SAD 5
-#define RST 27
+#include <Wire.h>
+
+#define SAD 5   // SPI chip select pin (CS/SS/SSEL)
+#define RST 27  // Not reset and power-down pin.
 
 MFRC522 nfc(SAD, RST);
 
